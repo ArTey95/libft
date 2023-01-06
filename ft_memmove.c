@@ -1,39 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ateymour <ateymour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/06 10:25:11 by ateymour          #+#    #+#             */
-/*   Updated: 2023/01/06 10:26:58 by ateymour         ###   ########.fr       */
+/*   Created: 2023/01/06 10:26:02 by ateymour          #+#    #+#             */
+/*   Updated: 2023/01/06 10:26:49 by ateymour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include <unistd.h>
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h> 
-void *ft_memset(void *b, int c, size_t n){
+void *ft_memmove(void *dest, const void *src, size_t n){
     size_t i;
+    unsigned char buffer [n]; 
 
+   
     i = 0;
-    while (i <  n){
-       *((unsigned char *)(b + i)) = c;
+    while (i < n){
+        *(buffer + i) = *((unsigned char *)(src + i));
         i++;
     }
-
-
-    return (b);
+    i = 0;
+    while (i < n){
+        *((unsigned char *)(dest + i)) = *(buffer + i);
+        i++;
+    }
+    return (dest);
 }
-// int main(int argc, char **argv)
-// {
-// char str[50];
-// strcpy(str,argv[argc -1]);
-// printf("%s\n",str);
-// ft_memset(str, 'a', 2);
-// printf("%s",str);
-// // printf("%s",ft_memset(argv[argc -1],'a',3));
+int main()
+{
+char src[10] = "123456789";
 
-// }
+
+printf("%s",(unsigned char *)memmove(src,src+1,4));
+// printf("%s",(unsigned char *)ft_memmove(src,src+1,4));
+
+}

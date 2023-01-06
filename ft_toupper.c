@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ateymour <ateymour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/06 10:25:26 by ateymour          #+#    #+#             */
-/*   Updated: 2023/01/06 10:26:53 by ateymour         ###   ########.fr       */
+/*   Created: 2023/01/06 12:27:44 by ateymour          #+#    #+#             */
+/*   Updated: 2023/01/06 12:35:28 by ateymour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include <stdio.h>
 #include <ctype.h>
-int ft_isalnum(int c){
-    
-    if ( (('0' <= c) && (c <= '9')) || (('A' <= c) && (c <= 'Z'))|| (('a' <= c) && (c <= 'z' ))) {
-        return (1);
-        }   
+#include <stdio.h>
+#include <unistd.h>
+
+
+int ft_toupper (int c){
+    if (c < 123 && c > 96) {
+        return ( c - 32);
+    }
     else {
-        return(0);
-    }    
-
+        return (c);
+    }
 }
-
-int main(int argc, char **argv)
-{
-
-// printf("%d",ft_isalnum(argv[argc -1 ][0]));
-// printf("%d",isdigit(argv[argc -1 ][0]));
-
-}
+// int main(void) {
+//     printf(" %c\n", (char)ft_toupper('2'));
+//     return(0);
+// }
